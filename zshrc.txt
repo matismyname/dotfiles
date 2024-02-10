@@ -1,0 +1,19 @@
+PS1="%F{green}[%F{white}%n@%m%f%F{green}] %F{#6272A4}(%~%) %F{cyan}>>%f "
+#Basic autocomplete
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
+
+#History
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.cache/zsh/history
+
+#Syntax highlighting
+# Syntax highlighting (source zsh-syntax-highlighting first)
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Autosuggestions (source zsh-autosuggestions after zsh-syntax-highlighting)
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh

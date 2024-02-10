@@ -1,0 +1,52 @@
+syntax on " Syntax highlighting
+set number " numbers on the left
+" Mapping of :W to :w
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+
+" mouse support
+set mouse=a
+
+" indenting
+set smartindent
+set autoindent
+
+" Highlight search result as I am typing
+set incsearch
+
+" Highlight current line
+set cursorline
+
+" Highlight matching paranthesis
+set showmatch
+
+" Show which mode I am in
+set showmode
+
+" Clipboard support
+set clipboard=unnamedplus
+colorscheme desert
+
+hi StatusLine 	ctermfg=black 	ctermbg=white
+
+set laststatus=2
+set statusline=
+set statusline+=\[%n]                                  "buffernr
+set statusline+=\ %<%F\                                "File+path
+set statusline+=\ %y\                                  "FileType
+set statusline+=\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
+set statusline+=\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
+set statusline+=\ %{&ff}\                              "FileFormat (dos/unix..) 
+set statusline+=\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
+set statusline+=\ col:%03c\                            "Colnr
+
+set wrap
+
+
+" File handling
+set path+=**
+set wildmenu
+set hidden
+
+" File explorer
+inoremap <c-e> <Esc>:Lex<cr>:vertical resize 25<cr>
+nnoremap <c-e> <Esc>:Lex<cr>:vertical resize 25<cr>
